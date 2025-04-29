@@ -6,21 +6,30 @@
     <title>Biglietto treno</title>
 </head>
 <body>
-    <div>
+    <div class="user-data">
         <!-- Dati per il biglietto -->
         <h1>Calcola il prezzo del biglietto</h1>
-        <label for="anni">Quanti anni hai?</label>
-        <input type="text" id="anni" />
-        <label for="chilometri">Inserisci i chilometri</label>
-        <input type="text" id="chilometri" />
+        <form action="" id="formBiglietto">
+            <div>
+                <label for="anni">Qual'è la tua età?</label>
+                <input type="number" id="anni" />
+            </div>
+            <div>
+                <label for="km">Quanti chilometri devi percorrere?</label>
+                <input type="number" id="km" />
+            </div>
+            <button id="btn-anni">Inserisci</button>
+        </form>
         <!-- /Dati per il biglietto -->
 
     </div>
 
     <div>
         <h1>Prezzo del biglietto</h1>
+        <p class="final-price"></p>
+
     </div>
 
-    <script src="./javascript/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
