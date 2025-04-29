@@ -3,10 +3,15 @@ const formElem = document.getElementById("formBiglietto")
 const inputAnni = document.getElementById("anni")
 const inputKm = document.getElementById("km")
 const buttonElem = document.getElementById("btn-anni")
-console.log(inputAnni)
+console.log(formElem)
 
 const priceBox = document.querySelector(".final-price")
-console.log(priceBox)
+const numCarrozza = document.querySelector(".numerotreno")
+const codUtente = document.querySelector(".cod-passeggero")
+console.log(numCarrozza)
+
+
+
 
 // Aggiungo evento al click
 buttonElem.addEventListener("click", handleForm)
@@ -21,6 +26,10 @@ function handleForm(event) {
     const km = inputKm.value;
     console.log(anni, km)
 
+     // Definisco numero carrozza e codice passeggero con numero random
+    const serialeCarrozza = Math.floor(Math.random() * 100);
+    const serialePasseggero = Math.floor(Math.random() * 100);
+    
     // Conteggio prezzo
     const prezzoBase = 0.21 * km
     console.log(prezzoBase)
@@ -29,6 +38,7 @@ function handleForm(event) {
     const sconto20 = ((prezzoBase / 100) * 20);
     const sconto40 = ((prezzoBase / 100) * 40);
 
+
     // Pongo condizioni per calcolare il prezzo finale
     if (km <= 0) {
         alert(`Si prega di inserire un dato valido`);
@@ -36,10 +46,16 @@ function handleForm(event) {
         alert(`Si prega di inserire un'età valida`);
     } else if (anni < 18) {
         priceBox.innerHTML = `Il prezzo del biglietto è ${(prezzoBase - sconto20).toFixed(2)}€`;
+        numCarrozza.innerHTML = `NC ${serialeCarrozza}`;
+        codUtente.innerHTML = `ID ${serialePasseggero}`;
     } else if (anni >= 65) {
        priceBox.innerHTML = `Il prezzo del biglietto è ${(prezzoBase - sconto40).toFixed(2)}€`;
+       numCarrozza.innerHTML = `NC ${serialeCarrozza}`;
+       codUtente.innerHTML = `ID ${serialePasseggero}`;
     } else if (anni >= 18) {
        priceBox.innerHTML = `Il prezzo del biglietto è ${(prezzoBase).toFixed(2)}€`;
+       numCarrozza.innerHTML = `NC ${serialeCarrozza}`;
+       codUtente.innerHTML = `ID ${serialePasseggero}`;
     }
 
     // Resetto i campi del form
