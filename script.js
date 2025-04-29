@@ -1,14 +1,14 @@
+// Prelevo gli elementi
 const formElem = document.getElementById("formBiglietto")
-
 const inputAnni = document.getElementById("anni")
 const inputKm = document.getElementById("km")
 const buttonElem = document.getElementById("btn-anni")
 console.log(inputAnni)
 
-
 const priceBox = document.querySelector(".final-price")
 console.log(priceBox)
 
+// Aggiungo evento al click
 buttonElem.addEventListener("click", handleForm)
 
 function handleForm(event) {
